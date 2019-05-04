@@ -13,3 +13,8 @@ app.use(express.json());
 require("./routing/apiRoutes")(app);
 require("/routing/htmlRouts")(app);
 
+// listener
+
+app.listen(PORT, function(){
+    console.log("APP listening on PORT: " + PORT);
+})
