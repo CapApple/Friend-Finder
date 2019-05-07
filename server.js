@@ -2,8 +2,8 @@ var express = require("express");
 // creating an express server
 var app = express();
 
-// var PORT = process.env.PORT
-var PORT = 8083;
+var PORT = process.env.PORT || 8083;
+// var PORT = 8083;
 
 // set up the express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
