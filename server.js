@@ -3,7 +3,7 @@ var express = require("express");
 var app = express();
 
 // var PORT = process.env.PORT
-var PORT = 8081;
+var PORT = 8083;
 
 // set up the express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -11,7 +11,7 @@ app.use(express.json());
 
 // link route files
 require("./routing/apiRoutes")(app);
-require("/routing/htmlRouts")(app);
+require("./routing/htmlRoutes")(app);
 
 // listener
 

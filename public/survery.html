@@ -11,6 +11,75 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <style>
+        * {
+                line-height: 1.5;
+            }
+    
+            h1,
+            h2,
+            h3,
+            h4 {
+                color: rgb(60, 60, 60);
+                /* color: red; */
+            }
+    
+            h3 {
+                font-size: 22px;
+                margin-top: 35px;
+            }
+    
+            h4 {
+                font-size: 20px;
+            }
+    
+            button {
+                background-color: rgb(76, 107, 187);
+                color: white;
+            }
+
+            /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+#close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#close:hover,
+#close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+        </style>
 </head>
 
 <body>
@@ -21,12 +90,12 @@
         <h4>Name (Required)</h4>
         <input type="text" id="name" class="form-control" required>
         <h4>Link to Your Photo (Required)</h4>
-        <input type="text" id="name" class="form-control" required>
+        <input type="text" id="photo" class="form-control" required>
         <hr>
         <h3>Question 1</h3>
         <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
         <select class="chosen-select" id="q1">
-            <option value></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -36,7 +105,7 @@
         <h3>Question 2</h3>
         <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
         <select class="chosen-select" id="q2">
-            <option value></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -46,7 +115,7 @@
         <h3>Question 3</h3>
         <h4>You find it easy to stay relaxed and focused even when there is more pressure.</h4>
         <select class="chosen-select" id="q3">
-            <option value></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -56,7 +125,7 @@
         <h3>Question 4</h3>
         <h4>You realy do something just out of sheer curiosity.</h4>
         <select class="chosen-select" id="q4">
-            <option value></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -66,7 +135,7 @@
         <h3>Question 5</h3>
         <h4>People can rarely upset you.</h4>
         <select class="chosen-select" id="q5">
-            <option value></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -76,17 +145,7 @@
         <h3>Question 6</h3>
         <h4>It is often difficult for you to relate to other people’s feelings.</h4>
         <select class="chosen-select" id="q6">
-            <option value></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>
-        </select>
-        <h3>Question 6</h3>
-        <h4>It is often difficult for you to relate to other people’s feelings.</h4>
-        <select class="chosen-select" id="q6">
-            <option value></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -96,7 +155,7 @@
         <h3>Question 7</h3>
         <h4>In a discussion, truth should be more important than people's sensitivities.</h4>
         <select class="chosen-select" id="q7">
-            <option value></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -106,7 +165,7 @@
         <h3>Question 8</h3>
         <h4>You rarely get carried away by fantasies and ideas.</h4>
         <select class="chosen-select" id="q8">
-            <option value></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -117,7 +176,7 @@
         <h4>You think that everyone's view should be respected regardless of whether they are supported by facts or
             not.</h4>
         <select class="chosen-select" id="q9">
-            <option value></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -127,7 +186,7 @@
         <h3>Question 10</h3>
         <h4>You feel more energetic after spending time with a group of friends.</h4>
         <select class="chosen-select" id="q10">
-            <option value></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -144,12 +203,127 @@
 
         <footer class="footer">
             <div class="container">
-                <p><a href="/api/friends">API Friends List</a> | <a href="#">Github Repo</a>
+                <p><a href="/api/users">API Friends List</a> | <a href="#">Github Repo</a>
             </div>
         </footer>
+        <!-- the modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span id="close">&times;</span>
+                <p>Here is your best match:</p>
+                <p class="matchname"></p>
+                <div class="matchpic"></div>
+            </div>
+        </div>
 
 
     </div>
+
+    <script type="text/javascript">
+
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+            console.log("submit clicked");
+            var newUser = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                scores: [
+                    parseInt($("#q1").val()),
+                    parseInt($("#q2").val()),
+                    parseInt($("#q3").val()),
+                    parseInt($("#q4").val()),
+                    parseInt($("#q5").val()),
+                    parseInt($("#q6").val()),
+                    parseInt($("#q7").val()),
+                    parseInt($("#q8").val()),
+                    parseInt($("#q9").val()),
+                    parseInt($("#q10").val())
+                ]
+            };
+            // console.log(newUser.scores);
+            // validating form 
+            var multi = 1;
+            for (var x = 0; x < 10; x++) {
+                multi = multi * newUser.scores[x];
+            }
+            // console.log(multi);
+            if (newUser.name === "") {
+                alert("Name is required!");
+            }
+            else if (multi === 0) {
+                alert("Please answer all questions.");
+            }
+            else {
+
+                // get
+                $.get("/api/users", function (users) {
+                    var diffArray = [];
+                    for (var i = 0; i < users.length; i++) {
+                        console.log(users[i]);
+                        // calculate the "score differences" between newUser and each user in the database, then store each of the differences in an array
+                        var difference = 0;
+                        for (var j = 0; j < 10; j++) {
+                            // console.log(newUser.scores[j]);
+                            // console.log(Math.abs(score - newUser.scores[j]));
+                            difference = difference + Math.abs((newUser.scores)[j] - (users[i].scores[j]));
+                            console.log(difference);
+                        }
+                        diffArray.push(difference);
+                        console.log(diffArray);
+                    }
+                    // find out the min number in the array and the index of that number, then find out the best match user in the user array
+                    var min = diffArray[0];
+                    for(var y=0; y<diffArray.length; y++){
+                        if (min > diffArray[y]){
+                            min = diffArray[y];
+                        }
+                    }
+                    console.log(min);
+                    var index = diffArray.indexOf(min);
+                    var match = users[index];
+                    console.log(match);
+                    //  modal
+                    $(".matchname").text(match.name);
+                    var pic = $("<img>");
+                    pic.attr("src", match.photo);
+                    pic.attr("width", "360px");
+                    $(".matchpic").append(pic);
+                    $("#myModal").css("display", "block");
+                    $("#close").on("click", function(){
+                        console.log("close clicked");
+                        $("#myModal").css("display", "none");
+                    })
+
+                    console.log(newUser.scores);
+                    // post and clear
+                    $.post("/api/users", newUser,
+                        function (data) {
+                            // clear
+                            $("#name").val("");
+                            $("#photo").val("");
+                            $("#q1").val(0);
+                            $("#q2").val(0);
+                            $("#q3").val(0);
+                            $("#q4").val(0);
+                            $("#q5").val(0);
+                            $("#q6").val(0);
+                            $("#q7").val(0);
+                            $("#q8").val(0);
+                            $("#q9").val(0);
+                            $("#q10").val(0);
+                        }
+                    );
+                })
+
+
+
+
+            }
+        })
+
+
+    </script>
+
 </body>
 
 </html>

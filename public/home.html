@@ -1,38 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Find your Friend</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <title>Find your Friend</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <style>
+        * {
+            line-height: 1.5;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: rgb(60, 60, 60);
+            /* color: red; */
+        }
+
+        h3 {
+            font-size: 22px;
+            margin-top: 35px;
+        }
+
+        h4 {
+            font-size: 20px;
+        }
+
+        button {
+            background-color: rgb(76, 107, 187);
+            color: white;
+        }
+    </style>
 </head>
+
 <body>
 
-  <div class="container">
+    <div class="container">
 
-    <div class="jumbotron">
-      <h1 class="text-center"><span class="fa fa-user-friends"></span> Friend Finder</h1>
-      <hr>
-      <h2>Answer a few basic questions.</h2>
-      <h2>Then find the friend with the greatest compatibility!</h2>
-      <br>
+        <div class="jumbotron">
+            <h1 class="text-center"><span class="fa fa-user-friends"></span> Friend Finder</h1>
+            <hr>
+            <h2>Answer a few basic questions.</h2>
+            <h2>Then find the friend with the greatest compatibility!</h2>
+            <br>
 
-      <div>
-        <a href="/survey"><button class="btn btn-lg"><i class="fas fa-poll-h"></i> Go to Survey</button></a>
-      </div>
+            <div>
+                <a href="/survey"><button class="btn btn-lg"><i class="fas fa-poll-h"></i> Go to Survey</button></a>
+            </div>
+
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p><a href="/api/users">API Friends List</a> | <a href="https://github.com/CapApple/Friend-Finder">Github Repo</a>
+            </div>
+        </footer>
 
     </div>
 
-    <footer class="footer">
-      <div class="container">
-        <p><a href="/api/friends">API Friends List</a> | <a href="/api/repo">Github Repo</a>
-      </div>
-    </footer>
-
-  </div>
-
 
 </body>
+
 </html>
