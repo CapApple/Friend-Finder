@@ -257,6 +257,7 @@
 
                 // get
                 $.get("/api/users", function (users) {
+                    console.log(users);
                     var diffArray = [];
                     for (var i = 0; i < users.length; i++) {
                         console.log(users[i]);
@@ -283,11 +284,12 @@
                     var match = users[index];
                     console.log(match);
                     //  modal
+
                     $(".matchname").text(match.name);
                     var pic = $("<img>");
                     pic.attr("src", match.photo);
                     pic.attr("width", "360px");
-                    $(".matchpic").append(pic);
+                    $(".matchpic").html(pic);
                     $("#myModal").css("display", "block");
                     $("#close").on("click", function(){
                         console.log("close clicked");
